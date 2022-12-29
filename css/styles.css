@@ -9,6 +9,9 @@
   --accent: #e7e9fc;
   --light: #f4f4fd;
   --primary-white: #ffffff;
+  --pressed-state: #404bbf;
+  --modal-overlay: #2e2f42;
+  --hero-background: #2e2f42;
 }
 body {
   background-color: #ffffff;
@@ -104,14 +107,39 @@ img {
   font-size: 16px;
   line-height: 1.5;
   color: var(--dark);
+  padding-top: 24px;
+  padding-bottom: 28px;
+  position: relative;
 }
+
+.current-page {
+  color: var(--pressed-state);
+}
+
+.current-page::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--pressed-state);
+}
+
 .menu-item:hover,
 .menu-item:focus {
   color: var(--text);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .menu-item:active {
   color: var(--primarybrand);
 }
+
 .contacts {
   list-style: none;
   display: flex;
@@ -129,6 +157,9 @@ img {
 .contact:hover,
 .contact:focus {
   color: var(--primarybrand);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .paragraph {
@@ -153,7 +184,6 @@ img {
   padding: 192px 0 192px 0;
   margin-left: auto;
   margin-right: auto;
-  
 }
 .primary-section-container {
   box-sizing: border-box;
@@ -216,6 +246,10 @@ img {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 4px;
+  background-color: var(--pressed-state);
+  transition-property: background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .primary-btn:active {
@@ -230,6 +264,7 @@ img {
   font-size: 20px;
   line-height: 1.2;
   margin-bottom: 8px;
+  color: var(--dark);
 }
 
 .advantages {
@@ -304,15 +339,8 @@ img {
 }
 .social-media-item {
   display: flex;
-  /* border-radius: 50%; */
-}
-
-.svg-social-media {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  padding: 12px;
-  fill: currentColor;
+  /* box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+border-radius: 0px 0px 4px 4px; */
 }
 
 .social-link {
@@ -321,7 +349,21 @@ img {
   justify-content: center;
   background-color: var(--primarybrand);
   border-radius: 50%;
-  border: none;
+}
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--pressed-state);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.svg-social-media {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  fill: currentColor;
 }
 
 /* CUSTOMERS SECTION */
@@ -360,13 +402,15 @@ img {
   color: var(--subtletext);
   border-radius: 4px;
   background-color: var(--primary-white);
+  /* animation-name: changeColor;
+  animation-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .customers-link:hover,
-.customers-link:focus
-{
-  border: 1px solid var(--primarybrand);
-  color: var(--primarybrand);
+.customers-link:focus {
+  border: 1px solid var(--pressed-state);
+  color: var(--pressed-state);
 }
 .customers-svg {
   display: flex;
@@ -374,9 +418,7 @@ img {
   width: 168px;
   fill: currentColor;
   padding: 16px 32px;
-  
 }
-
 
 /* Footer */
 
@@ -400,7 +442,6 @@ img {
 
 .footer-block {
   width: 264px;
-  
 }
 
 .social-media-title {
@@ -441,6 +482,9 @@ img {
 .footer-link:hover,
 .footer-link:focus {
   background-color: var(--success);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* PORTFOLIO PAGE */
@@ -464,7 +508,12 @@ img {
   color: var(--primary-white);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--primarybrand);
   border-radius: 4px;
+
+  transition-property: background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter {
@@ -508,7 +557,106 @@ img {
 } */
 
 .portfolio-item:hover {
-  
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hidden Block */
+
+.hover-text {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--light);
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.hover-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primarybrand);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item-link {
+  text-decoration: none;
+}
+.portfolio-item-link:hover .hover-block,
+.portfolio-item-link:focus .hover-block {
+  transform: translateY(0);
+}
+
+.portfolio-item-box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Modal Window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 408px;
+  height: 576px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.close-modal:active {
+  background-color: var(--pressed-state);
+  fill: var(--primary-white);
+  transition-property: background-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.svg-modal {
+  display: flex;
+  width: 8px;
+  height: 8px;
 }
